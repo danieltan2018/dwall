@@ -1,0 +1,51 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Log - {{fin}}</h1>
+    <hr>
+    <table>
+        <tr>
+            <th style="width: 35%;">Timestamp</th>
+            <th style="width: 20%;">Activity</th>
+            <th style="width: 55%;">SafeEntry Transaction ID</th>
+        </tr>
+        {% for logitem in userlog %}
+        {% if logitem.activity == 'EXIT' %}
+        <tr style="background-color: lightgray;">
+            {% else %}
+        <tr>
+            {% endif %}
+            <td>{{logitem.timestamp}}</td>
+            <td>{{logitem.activity}}</td>
+            <td>{{logitem.safeentry}}</td>
+        </tr>
+        {{ i }}
+        {% endfor %}
+    </table>
+</div>
+
+<style>
+    .container {
+        width: 700px;
+        margin: auto;
+        text-align: center;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+        color: black;
+        width: 100%;
+        table-layout: fixed;
+        word-wrap: break-word
+    }
+
+    th {
+        color: white;
+        background-color: gray;
+    }
+</style>
+{% endblock %}

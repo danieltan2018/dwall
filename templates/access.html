@@ -1,0 +1,56 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<div class="container">
+    <h1>Check In / Out</h1>
+    <hr>
+    {{ wtf.quick_form(form) }}
+    <hr>
+    {% if boxtype %}
+    <div id={{boxtype}}>
+        <h3><b>{{boxtext}}</b></h3>
+        {% if name %}
+        <h4>{{name}}</h4>
+        {% endif %}
+        {% if location %}
+        <p>SafeEntry Venue: {{location}}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<style>
+    .container {
+        width: 500px;
+        margin: auto;
+        text-align: center;
+    }
+
+    #successbox {
+        width: 450px;
+        margin: auto;
+        text-align: center;
+        background-color: palegreen;
+        padding: 5px;
+        border: 1px solid green;
+    }
+
+    #warnbox {
+        width: 450px;
+        margin: auto;
+        text-align: center;
+        background-color: gold;
+        padding: 5px;
+        border: 1px solid darkorange;
+    }
+
+    #errorbox {
+        width: 450px;
+        margin: auto;
+        text-align: center;
+        background-color: lightpink;
+        padding: 5px;
+        border: 1px solid red;
+    }
+</style>
+{% endblock %}

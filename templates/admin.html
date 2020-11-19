@@ -1,0 +1,44 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Admin Page</h1>
+    <a href="/logout" class="button" type="button">Logout</a>
+    <hr>
+    <h3>User Access Control</h3>
+    <p>Remember to press Sync after editing the Google Sheet</p>
+    <a href="https://docs.google.com/spreadsheets/d/1VAlrUlYjjr2XJ16gpLU8s-ubno7-XqkMxWpVqsKhMVU/edit?usp=sharing"
+        class="button" type="button">Modify Access</a>
+    <a href="/gsheetsync" class="button" type="button">Sync</a>
+    <hr>
+    <h3>Entry/Exit Logs</h3>
+    <a href="/status" class="button" type="button">Show All Users</a>
+</div>
+
+<style>
+    .container {
+        width: 500px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .button {
+        background-color: dodgerblue;
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    .button:hover {
+        background-color: darkblue;
+        color: white;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+{% endblock %}

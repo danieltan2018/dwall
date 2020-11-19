@@ -1,0 +1,77 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<div class="container">
+    <h1>User Status</h1>
+    <hr>
+    <table>
+        <tr>
+            <th style="width: 15%;">FIN</th>
+            <th style="width: 65%;">Name</th>
+            <th style="width: 10%; text-align: center;">Status</th>
+            <th style="width: 10%; text-align: center">Log</th>
+        </tr>
+        {% for user, status in userdict.items() %}
+        {% if status == 'OUT' %}
+        <tr style="background-color: lightgray;">
+            {% else %}
+        <tr>
+            {% endif %}
+            <td>{{user.fin}}</td>
+            <td>{{user.name}}</td>
+            <td style="text-align: center;">{{status}}</td>
+            <td style="text-align: center;">
+                <form action="/log" method="POST">
+                    <input type="hidden" name="fin" value={{user.fin}}>
+                    <input class="button" type="submit" value="View">
+                </form>
+            </td>
+        </tr>
+        {{ i }}
+        {% endfor %}
+    </table>
+</div>
+
+<style>
+    .container {
+        width: 700px;
+        margin: auto;
+        text-align: center;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+        color: black;
+        width: 100%;
+        table-layout: fixed;
+        word-wrap: break-word
+    }
+
+    th {
+        color: white;
+        background-color: gray;
+    }
+
+    .button {
+        background-color: dodgerblue;
+        border: none;
+        color: white;
+        padding: 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .button:hover {
+        background-color: darkblue;
+        color: white;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
